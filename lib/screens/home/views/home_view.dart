@@ -23,6 +23,7 @@ class HomeView extends GetWidget<HomeController> {
             Expanded(
               child: Obx(() => HomeBodyElement(
                 jokeContent: controller.currentJoke.value.getJokeContent(),
+                isLoading: controller.isLoading.value,
                 onRateJoke: (rate) {
                   controller.onRateJoke(rate);
                 },

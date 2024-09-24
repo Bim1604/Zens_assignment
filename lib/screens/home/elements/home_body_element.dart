@@ -5,11 +5,12 @@ import 'package:zens_assignment/datas/app_color.dart';
 import 'package:zens_assignment/datas/app_type.dart';
 
 class HomeBodyElement extends StatelessWidget {
-  const HomeBodyElement({super.key, required this.jokeContent, required this.onRateJoke, this.outOfJoke = false});
+  const HomeBodyElement({super.key, required this.jokeContent, required this.onRateJoke, this.outOfJoke = false, this.isLoading = false});
 
   final String jokeContent;
   final Function(JokeType) onRateJoke;
   final bool outOfJoke;
+  final bool isLoading;
 
   String getJokeContent() {
     String result = jokeContent;
@@ -40,6 +41,17 @@ class HomeBodyElement extends StatelessWidget {
              ],
            ),
          ),
+         isLoading ? Expanded(
+           child: Center(
+            child: SizedBox(
+              height: 100.0,
+              width: 100.0,
+              child: CircularProgressIndicator(
+                color: Theme.of(context).colorScheme.primary,
+              ),
+            ),
+           ),
+         ) :
          Expanded(
             child: Container(
             padding: const EdgeInsets.fromLTRB(20.0,30.0,20.0,10.0),
@@ -49,7 +61,7 @@ class HomeBodyElement extends StatelessWidget {
             ) 
          ),
          Visibility(
-           visible: !outOfJoke,
+           visible: !outOfJoke && !isLoading,
            child: Padding(
              padding: const EdgeInsets.symmetric(horizontal: 25.0),
              child: Row(
