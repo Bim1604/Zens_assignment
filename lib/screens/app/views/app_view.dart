@@ -13,7 +13,7 @@ class AppScreen extends GetWidget<AppController>{
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: "Ami+",
+      title: "Zens assignment",
       color: Colors.transparent,
       debugShowCheckedModeBanner: false,
       defaultTransition: Transition.fade,
