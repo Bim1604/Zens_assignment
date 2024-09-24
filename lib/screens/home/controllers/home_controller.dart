@@ -97,14 +97,7 @@ class HomeController extends GetxController {
       data[index].rate = type;
       await repository.addJoke(data[index]);
       data.removeAt(index);
-      if (data.isEmpty) {
-        return;
-      }
-      if (data.length == 1) {
-        currentJoke.value = data.first;
-      }
-      int numberRandom = rand.nextInt(data.length - 1);
-      currentJoke.value = data[numberRandom];
+      await loadRandomJoke();
     } catch (e) {
       print(e);
     }
