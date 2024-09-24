@@ -1,0 +1,3 @@
+enum JokeType {
+  like, dislike
+}
